@@ -24,7 +24,7 @@ def main():
         sys.exit(1)
 
     client = genai.Client(api_key=api_key)
-    user_prompt = " ".join(sys.argv[1:])
+    user_prompt = " ".join(args)
     if user_prompt == []:
         print("No prompt provided.")
         sys.exit(1)
