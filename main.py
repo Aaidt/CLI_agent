@@ -19,8 +19,8 @@ def main():
 
     if not args:
         print("AI Code Assistant")
-        print('\nUsage: python main.py "your prompt here" [--verbose]')
-        print('Example: python main.py "How do I build a calculator app?"')
+        print('\nUsage: uv run main.py "your prompt here" [--verbose]')
+        print('Example: uv run main.py "How do I build a calculator app?"')
         sys.exit(1)
 
     client = genai.Client(api_key=api_key)
@@ -40,7 +40,10 @@ def main():
 
 def generate_content(client, messages, verbose):
     response = client.models.generate_content(
-        model="gemini-2.0-flash-001", contents=messages
+        model="gemini-2.0-flash-001",
+        contents=messages,
+        config=types.GenerateContentConfig(
+            system_instruction=["answer in a very mean way"])
     )
     if verbose:
         print(f"Request tokens: {response.usage_metadata.prompt_token_count}")

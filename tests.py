@@ -1,21 +1,43 @@
 # from functions.get_files_info import get_files_info
 # from functions.get_files_content import get_files_content
-from functions.write_file import write_file
+# from functions.write_file import write_file
+from functions.run_python import run_python_file
 
 
 def test():
-    result = write_file("calculator", "lorem.txt", "wait, this isnt lorem ipsum")
-    print("Results: ")
+
+    result = run_python_file("calculator", "main.py")
+    print("Result:")
     print(result)
 
-    result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
-    print("Results: ")
+    result = run_python_file("calculator", "main.py", ["3 + 5"])
+    print("Result:")
     print(result)
 
-    result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
-    print("Results: ")
+    result = run_python_file("calculator", "tests.py")
+    print("Result:")
     print(result)
 
+    result = run_python_file("calculator", "../main.py")
+    print("Result:")
+    print(result)
+
+    result = run_python_file("calculator", "nonexistebt.py")
+    print("Result:")
+    print(result)
+
+    # result = write_file("calculator", "lorem.txt", "wait, this isnt lorem ipsum")
+    # print("Results: ")
+    # print(result)
+    #
+    # result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
+    # print("Results: ")
+    # print(result)
+    #
+    # result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
+    # print("Results: ")
+    # print(result)
+    #
     # result = get_files_info("calculator", ".")
     # print("Results for current directory:")
     # print(result)
