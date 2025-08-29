@@ -6,7 +6,7 @@ def write_file(working_directory, file_path, content):
     try:
         file_path_exists = os.path.exists(target_path)
         if not file_path_exists:
-            os.makedirs(target_path)
+            os.makedirs(os.path.dirname(target_path), exist_ok=True)
     except Exception as e:
         return f"Error in creating '{target_path}': '{e}'"
 
