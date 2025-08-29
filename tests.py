@@ -1,21 +1,42 @@
-from functions.get_files_info import get_files_info
+# from functions.get_files_info import get_files_info
+from functions.get_files_content import get_files_content
 
 
 def test():
-    result = get_files_info("calculator", ".")
-    print("Results for current directory:")
+    # result = get_files_info("calculator", ".")
+    # print("Results for current directory:")
+    # print(result)
+    #
+    # result = get_files_info("calculator", "pkg")
+    # print("Result for 'pkg' directory:")
+    # print(result)
+    #
+    # result = get_files_info("calculator", "/bin")
+    # print("Results for '/bin' directory:")
+    # print(result)
+    #
+    # result = get_files_info("calculator", "../")
+    # print("Result for '../' directory:")
+    # print(result)
+    #
+    # result = get_files_content("calculator", "lorem.txt")
+    # print("Results: ")
+    # print(result)
+
+    result = get_files_content("calculator", "main.py")
+    print("Result:")
     print(result)
 
-    result = get_files_info("calculator", "pkg")
-    print("Result for 'pkg' directory:")
+    result = get_files_content("calculator", "pkg/calculator.py")
+    print("Result:")
     print(result)
 
-    result = get_files_info("calculator", "/bin")
-    print("Results for '/bin' directory:")
+    result = get_files_content("calculator", "/bin/cat")
+    print("Result:")
     print(result)
 
-    result = get_files_info("calculator", "../")
-    print("Result for '../' directory:")
+    result = get_files_content("calculator", "pkg/does_not_exist.py")
+    print("Result:")
     print(result)
 
 
