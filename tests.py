@@ -4,6 +4,18 @@ from functions.write_file import write_file
 
 
 def test():
+    result = write_file("calculator", "lorem.txt", "wait, this isnt lorem ipsum")
+    print("Results: ")
+    print(result)
+
+    result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
+    print("Results: ")
+    print(result)
+
+    result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
+    print("Results: ")
+    print(result)
+
     # result = get_files_info("calculator", ".")
     # print("Results for current directory:")
     # print(result)
@@ -40,18 +52,6 @@ def test():
     # print("Result:")
     # print(result)
     #
-
-    result = write_file("calculator", "lorem.txt", "wait, this isnt lorem ipsum")
-    print("Results: ")
-    print(result)
-
-    result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
-    print("Results: ")
-    print(result)
-
-    result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
-    print("Results: ")
-    print(result)
 
 
 if __name__ == "__main__":
