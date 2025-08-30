@@ -20,11 +20,9 @@ def get_files_info(working_directory, directory="."):
             file_size = os.path.getsize(relative_full_path)
             is_dir = os.path.isdir(relative_full_path)
             files_list.append(f"- {file}: file_size:{file_size}, is_dir={is_dir}")
-
+            return "\n".join(files_list)
     except Exception as e:
         return f"Error listing files files: {e}"
-
-    return "\n".join(files_list)
 
 
 schema_get_files_info = types.FunctionDeclaration(
@@ -39,11 +37,5 @@ schema_get_files_info = types.FunctionDeclaration(
             ),
         },
     ),
-)
-
-available_functions = types.Tool(
-    function_declarations=[
-        schema_get_files_info,
-    ]
 )
 # print(get_files_info("calculator", "pkg"))
